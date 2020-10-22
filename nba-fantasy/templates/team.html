@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>NBA Fantasy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<style>
+    html {scroll-behavior: smooth;}
+    img {border-radius: 50%; max-width: fit-content}
+    .navbar {overflow: hidden; position: fixed; bottom: 0; width: 100%;}
+    .navbar a {float: left; text-align: center;}
+    .navbar a:hover {background-color: white; color: black;}
+    li a {width : 100%; height: 100%}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; text-decoration:none; font-weight: bold}
+</style>
+<body class="w3-content" style="max-width:1200px">
+    <ul class="w3-ul w3-card-4 w3-margin-bottom" id="roster"></ul>
+    <div class="navbar w3-black w3-xxlarge">
+        <a href="/" style="width: 33%">HOME</a>
+        <span class="w3-text-green" id="wallet" style="width: 33%"></span>
+        <a href="/teams" style="width: 33%">TEAMS</a>
+    </div>
+</body>
+<script>
+    function render_html(html) {
+        let template = document.createElement('template');
+        html = html.trim();
+        template.innerHTML = html;
+        return template.content.firstChild;
+    }
+
+
+    function add_name(line) {
+        let text = sessionStorage.getItem("players");
+        let total = Number(sessionStorage.getItem("total"));
+        if (text === null) text = "";
+        if (text.includes(line)) return;
+        text += ";" + line;
+        total += Number(line.split(":")[1]);
+        if (text[0] === ';') text = text.slice(1);
+        sessionStorage.setItem("players", text);
+        sessionStorage.setItem("total", String(total));
+        update_total();
+    }
+
+
+    function add_item(name, cost, average, roster) {
+        let item = render_html(
+            '<li onclick="add_name(\'' + name + ":" + cost + ":" + average.slice(0, -1) + '\');" class="w3-bar w3-black w3-hover-pale-green">' +
+            '<img src="/static/images/' + name.split(" ").join("-") + '-2K.png" class="w3-bar-item">' +
+            '<div class="w3-bar-item w3-xxlarge">' +
+            '<span>' + name + '</span>' +
+            '<span class="w3-margin-left w3-text-green">' + cost + '$</span>' +
+            '<span class="w3-margin-left w3-text-red">AVG: ' + average + '</span>' +
+            '</div>' +
+            '</li>'
+        );
+        roster.appendChild(item);
+    }
+
+
+    function inflate_roster(text) {
+        const roster = document.getElementById("roster");
+        const lines = text.split("\n");
+        for (let i = 0; i < lines.length; i++) {
+            const entry = lines[i].split(":");
+            const name = entry[0];
+            const cost = entry[1];
+            const average = entry[2]
+            add_item(name, cost, average, roster);
+        }
+    }
+
+
+    function update_total() {
+        let total = sessionStorage.getItem("total");
+        if (total === null) {
+            total = 0;
+            sessionStorage.setItem("total", String(total));
+        }
+        document.getElementById("wallet").innerHTML = String(100 - total) + "$";
+    }
+
+
+    update_total();
+    fetch("/static/rosters/{{ team_name }}.txt")
+        .then(response => response.text())
+        .then(text => inflate_roster(text));
+</script>
+</html>

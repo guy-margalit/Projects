@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>NBA Fantasy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<style>
+    html {scroll-behavior: smooth;}
+    li {padding: 0}
+    .navbar {overflow: hidden; position: fixed; bottom: 0; width: 100%;}
+    .navbar a {float: left; text-align: center;}
+    .navbar a:hover {background-color: white; color: black;}
+    img {max-width: 20%}
+    li a {width: 100%; height: 100%}
+    a {font-family: "Roboto", sans-serif; text-decoration:none; font-weight: bold; margin: 0; display: block;}
+    ul {list-style-type: none}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; text-decoration:none; font-weight: bold}
+</style>
+
+<body class="w3-content" style="max-width:1200px">
+    <ul class="w3-xxlarge w3-ul w3-card-4 w3-margin-bottom">
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=celtics">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/BOS.svg" alt="Boston Celtics">
+                <strong>Boston Celtics</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=nets">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/BKN.svg" alt="Brooklyn Nets">
+                <strong>Brooklyn Nets</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=mavericks">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/DAL.svg" alt="Dallas Mavericks">
+                <strong>Dallas Mavericks</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=nuggets">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/DEN.svg" alt="Denver Nuggets">
+                <strong>Denver Nuggets</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=rockets">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/HOU.svg" alt="Houston Rockets">
+                <strong>Houston Rockets</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=pacers">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/IND.svg" alt="Indiana Pacers">
+                <strong>Indiana Pacers</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=clippers">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/LAC.svg" alt="LA Clippers">
+                <strong>LA Clippers</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=lakers">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/LAL.svg" alt="Los Angeles Lakers">
+                <strong>Los Angeles Lakers</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=heat">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/MIA.svg" alt="Miami Heat">
+                <strong>Miami Heat</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=bucks">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/MIL.svg" alt="Milwaukee Bucks">
+                <strong>Milwaukee Bucks</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=thunder">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/OKC.svg" alt="Oklahoma City Thunder">
+                <strong>Oklahoma City Thunder</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=magic">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/ORL.svg" alt="Orlando Magic">
+                <strong>Orlando Magic</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=sixers">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/PHI.svg" alt="Philadelphia 76ers">
+                <strong>Philadelphia 76ers</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=blazers">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/POR.svg" alt="Portland Trail Blazers">
+                <strong>Portland Trail Blazers</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=raptors">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/TOR.svg" alt="Toronto Raptors">
+                <strong>Toronto Raptors</strong>
+            </a>
+        </li>
+        <li class="w3-black w3-hover-blue">
+            <a href="/team?name=jazz">
+                <img class="logo" src="https://www.nba.com/assets/logos/teams/primary/web/UTA.svg" alt="Utah Jazz">
+                <strong>Utah Jazz</strong>
+            </a>
+        </li>
+    </ul>
+    <div class="navbar w3-black w3-xxlarge">
+        <a href="/" style="width: 33%">HOME</a>
+        <a href="#" class="w3-text-green w3-hover-black w3-hover-text-green" id="wallet" style="width: 33%"></a>
+        <a class="w3-white" href="/teams" style="width: 33%">TEAMS</a>
+    </div>
+</body>
+<script>
+    let total = sessionStorage.getItem("total");
+    if (total === null) {
+        total = 0;
+        sessionStorage.setItem("total", String(total));
+    }
+    document.getElementById("wallet").innerHTML = String(100 - total) + "$"
+</script>
+</html>
