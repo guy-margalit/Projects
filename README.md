@@ -1,2 +1,2 @@
 # Projects
-A dump of all my projects
+A dump of some my projects
