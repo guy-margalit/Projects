@@ -1,0 +1,33 @@
+aaa
+2020-02-27 09:13:13.375676 Calling guy... 
+
+2020-02-27 09:13:14.387865 Error: timed out 
+
+2020-02-27 09:13:14.387865 Didn't answer 
+
+2020-02-27 09:13:43.688237 Calling guy... 
+
+2020-02-27 09:13:44.701947 Error: timed out 
+
+2020-02-27 09:13:44.701947 Didn't answer 
+
+2020-02-27 09:14:08.751859 Exiting... 
+
+2020-02-28 09:54:40.121444 Calling guy... 
+
+2020-02-28 09:54:41.131660 Error: timed out 
+
+2020-02-28 09:54:41.131660 Didn't answer 
+
+2020-02-28 09:54:50.124902 Picked up a call from guy 
+
+2020-02-28 09:54:51.187049 Starting Audio Input Stream... 
+
+2020-02-28 09:54:51.187049 Starting Audio Output Stream... 
+
+2020-02-28 09:55:00.152969 Stopping Audio Input Stream... 
+
+2020-02-28 09:55:00.172170 Error: [WinError 10053] An established connection was aborted by the software in your host machine 
+
+2020-02-28 09:55:00.295543 Stopping Audio Output Stream... 
+
